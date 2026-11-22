@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08060d">
+  <meta name="description" content="Y-VERS — K-pop, Entertainment, Beyond">
+  <style>
+:root{color-scheme:dark;--bg:#08060d;--panel:#151020;--line:#49306b;--purple:#9d4dff;--silver:#e8e5f0;--muted:#b9afc9}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#291344 0,transparent 42%),var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
+.app-shell{max-width:560px;min-height:100dvh;margin:auto;padding-bottom:82px;background:linear-gradient(180deg,rgba(20,10,35,.4),transparent 260px)}
+.topbar{height:76px;display:flex;align-items:center;gap:12px;padding:12px 17px;border-bottom:1px solid #28183b;position:sticky;top:0;background:rgba(8,6,13,.94);backdrop-filter:blur(12px);z-index:5}
+.brand{display:flex;align-items:center;gap:10px;flex:1}.brand-mark{font-size:35px;font-weight:900;font-style:italic;color:#eee;text-shadow:0 0 14px #a65cff;border:1px solid #8e50c7;border-radius:12px;padding:1px 10px}.brand b{display:block;font-size:23px;letter-spacing:2px}.brand small{display:block;font-size:8px;letter-spacing:2px;color:#b7a8ca;margin-top:3px}.icon-btn{background:none;border:0;color:white;font-size:28px;padding:5px}
+main{padding:18px 16px}.eyebrow{color:#c9a8ff;letter-spacing:2px;font-size:11px;text-transform:uppercase}.page-title{font-size:28px;margin:5px 0}.sub{color:var(--muted);line-height:1.45;margin:5px 0 18px}
+.hero{border:1px solid #9d64d8;border-radius:18px;padding:22px 18px;min-height:170px;background:radial-gradient(circle at 80% 20%,#7540a5 0,transparent 28%),linear-gradient(120deg,#170c27,#09070e 65%);box-shadow:0 0 22px #6b2ca944;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:22px}.hero h2{font-size:28px;margin:5px 0}.hero p{color:#ddd0ed;margin:5px 0 14px}.trophy{font-size:70px;filter:drop-shadow(0 0 14px #b57aff)}
+.btn{border:0;border-radius:999px;padding:11px 17px;background:linear-gradient(90deg,#7627d9,#b35cff);color:white;font-weight:bold;cursor:pointer}.btn.secondary{background:#171020;border:1px solid #8c58ba}.section-head{display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px}.section-head h3{margin:0;font-size:18px}.muted{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.program-card,.panel,.post{background:linear-gradient(145deg,#1a1027,#0e0a14);border:1px solid var(--line);border-radius:15px;padding:15px}.program-card{min-height:100px;display:flex;flex-direction:column;justify-content:space-between}.program-card .symbol{font-size:26px;color:#d6b4ff}.program-card b{font-size:14px}.program-card small{color:var(--muted);margin-top:5px}
+.video-card{border-radius:15px;overflow:hidden;border:1px solid var(--line);background:#120c1c}.video-art{height:155px;display:grid;place-items:center;font-size:48px;background:radial-gradient(circle,#71419b,#21132e 45%,#0c0911);}.video-info{padding:12px}.notice{margin-top:15px;padding:14px;border:1px solid #7142a0;border-radius:14px;background:#1c102a;color:#eadbff}
+.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:5px;margin:12px 0}.tab{white-space:nowrap;border:1px solid var(--line);border-radius:999px;background:#130d1c;color:#ddd;padding:9px 13px}.tab.selected{background:#7131b7;border-color:#b77aff}
+.nominee{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:9px 0}.nominee strong{font-size:14px}.nominee button{flex-shrink:0}
+.profile-head{display:flex;gap:14px;align-items:center;margin:14px 0 20px}.avatar{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#a45cff,#21132e);font-size:34px;border:2px solid #d5b4ff}.stats{display:flex;justify-content:space-around;text-align:center;padding:14px 4px;border:1px solid var(--line);border-radius:14px;margin-bottom:14px}.stats b{display:block;font-size:18px}.stats small{color:var(--muted)}
+.post{margin:12px 0}.post p{line-height:1.5}.post-actions{display:flex;gap:20px;color:#d8c5ed}.field{width:100%;padding:12px;border-radius:10px;background:#0d0913;border:1px solid var(--line);color:white;margin:7px 0 12px}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(560px,100%);height:72px;display:flex;justify-content:space-around;align-items:center;background:rgba(8,6,13,.97);border-top:1px solid #4c2c69;z-index:10;padding-bottom:env(safe-area-inset-bottom)}.bottom-nav button{border:0;background:none;color:#a99bb8;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:55px}.bottom-nav button span{font-size:23px}.bottom-nav button.active{color:#c58aff;text-shadow:0 0 12px #a34dff}
+#toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);background:#2a183d;border:1px solid #9a61cb;color:#fff;border-radius:12px;padding:10px 14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;max-width:90%;text-align:center}#toast.show{opacity:1}
+@media(min-width:500px){main{padding:24px}.hero{min-height:190px}}
+
+</style>
+  <title>Y-VERS</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">Y</span><span><b>Y-VERS</b><small>K-POP · ENTERTAINMENT · BEYOND</small></span></div>
+      <button class="icon-btn" aria-label="Cari" onclick="toast('Fitur pencarian akan ditambahkan.')">⌕</button>
+      <button class="icon-btn" aria-label="Notifikasi" onclick="toast('Belum ada notifikasi.')">♧</button>
+    </header>
+
+    <main id="screen" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <button data-page="home" class="active"><span>⌂</span>Home</button>
+      <button data-page="program"><span>▦</span>Program</button>
+      <button data-page="gah"><span>★</span>GAH Awards</button>
+      <button data-page="community"><span>▷</span>Community</button>
+      <button data-page="profile"><span>♙</span>My</button>
+    </nav>
+  </div>
+  <div id="toast" role="status"></div>
+  <script>
+const screen=document.getElementById('screen');
+const programs=[
+ ['🏆','GAH Awards','Global Agensi Halu Awards'],
+ ['⚗','V:LAB','Creative studio & music production'],
+ ['✦','NXT GENERATION','New trainee & idol program'],
+ ['♫','V-SYNC','Live performances & music sessions'],
+ ['◎','ID:ONE','Artist profiles & stories'],
+ ['◇','V-MODE','Fashion & styling'],
+ ['▶','V-LOGUE','Documentary & behind the scenes'],
+ ['∞','UN:ITY','International collaborations'],
+ ['★','V-CLUB','Fandom community'],
+ ['▥','V-CHART','Rankings & charts']
+];
+function card(p){return `<article class="program-card"><span class="symbol">${p[0]}</span><b>${p[1]}</b><small>${p[2]}</small></article>`}
+function home(){return `<div class="eyebrow">Welcome to</div><h1 class="page-title">Y-VERS</h1><p class="sub">K-POP · ENTERTAINMENT · BEYOND</p>
+<section class="hero"><div><div class="eyebrow">The biggest award in Y-VERS</div><h2>GAH AWARDS</h2><p>Dukung pilihanmu. Voting gratis.</p><button class="btn" onclick="navigate('gah')">Lihat GAH Awards →</button></div><div class="trophy">🏆</div></section>
+<div class="section-head"><h3>Program Y-VERS</h3><span class="muted">10 program</span></div><div class="grid">${programs.map(card).join('')}</div>
+<div class="section-head"><h3>Video Terbaru</h3><span class="muted">Segera hadir</span></div><div class="video-card"><div class="video-art">▶</div><div class="video-info"><b>Video resmi Y-VERS</b><p class="muted">Video akan muncul di sini setelah fitur upload diaktifkan.</p></div></div>
+<div class="notice">📢 <b>Pengumuman Y-VERS</b><br><span class="muted">Pengumuman resmi akan tampil di halaman ini.</span></div>`}
+function programPage(){return `<div class="eyebrow">Explore all shows</div><h1 class="page-title">Program</h1><p class="sub">10 Program, Satu Dunia Hiburan!</p><div class="tabs"><button class="tab selected">Semua</button><button class="tab">Music</button><button class="tab">Entertainment</button><button class="tab">Special</button></div><div class="grid">${programs.map(card).join('')}</div>`}
+function gah(){return `<div class="eyebrow">Y-VERS presents</div><h1 class="page-title">🏆 GAH Awards</h1><p class="sub">Global Agensi Halu Awards</p><section class="hero"><div><h2>GAH AWARDS</h2><p>Celebrate talent. Share the spotlight.</p><span class="muted">Voting belum dibuka.</span></div><div class="trophy">🏆</div></section><div class="tabs"><button class="tab selected">Beranda</button><button class="tab" onclick="toast('Nominasi akan tersedia setelah diumumkan.')">Nominasi</button><button class="tab" onclick="toast('Hasil voting belum tersedia.')">Hasil Voting</button><button class="tab" onclick="toast('Informasi acara segera hadir.')">Acara</button></div><div class="panel"><h3>Cara Voting</h3><p class="muted">1. Masuk ke akun Y-VERS<br>2. Pilih kategori dan nominasi<br>3. Kirim pilihan saat voting resmi dibuka.</p><b style="color:#c99aff">Voting GAH Awards direncanakan gratis.</b></div><div class="notice">📣 Informasi nominasi dan jadwal resmi akan diumumkan di sini.</div>`}
+function community(){return `<div class="eyebrow">Connect with fans</div><h1 class="page-title">Community</h1><p class="sub">Bergabung, berbagi, dan terhubung dengan komunitas Y-VERS.</p><div class="panel"><b>Buat postingan</b><textarea class="field" rows="3" placeholder="Apa yang ingin kamu bagikan?" id="postText"></textarea><button class="btn" onclick="addPost()">Posting</button><p class="muted">Postingan demo hanya tersimpan sementara di halaman ini.</p></div><div id="posts"><article class="post"><b>Y-VERS Official</b><p>Selamat datang di Community Y-VERS! ✨</p><div class="post-actions"><span>♡ Suka</span><span>◯ Komentar</span><span>↗ Bagikan</span></div></article></div>`}
+function profile(){return `<div class="eyebrow">Your account</div><h1 class="page-title">My Profile</h1><div class="profile-head"><div class="avatar">Y</div><div><h2 style="margin:0">Pengguna Y-VERS</h2><span class="muted">@username</span><p class="muted">Dream Big, Be a Star ✨</p></div></div><div class="stats"><div><b>0</b><small>Postingan</small></div><div><b>0</b><small>Pengikut</small></div><div><b>0</b><small>Mengikuti</small></div></div><div class="panel"><h3>Akun</h3><p>✎ Edit Profil</p><p>☆ Achievement</p><p>🏆 Riwayat Voting GAH Awards</p><p>⚙ Pengaturan</p><p class="muted">Login dan sinkronisasi akun akan dihubungkan pada tahap backend.</p></div>`}
+const pages={home,program:programPage,gah,community,profile};
+function navigate(page){screen.innerHTML=pages[page]();document.querySelectorAll('.bottom-nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));window.scrollTo(0,0)}
+document.querySelectorAll('.bottom-nav button').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.page)));
+function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+function addPost(){const input=document.getElementById('postText');const value=input.value.trim();if(!value){toast('Tulis sesuatu terlebih dahulu.');return}const article=document.createElement('article');article.className='post';article.innerHTML=`<b>Pengguna Y-VERS</b><p></p><div class="post-actions"><span>♡ Suka</span><span>◯ Komentar</span><span>↗ Bagikan</span></div>`;article.querySelector('p').textContent=value;document.getElementById('posts').prepend(article);input.value='';toast('Postingan demo ditambahkan.')}
+navigate('home');
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+
+</script>
+</body>
+</html>
