@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08060d">
+  <meta name="description" content="Y-VERS — K-pop, Entertainment, Beyond">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>Y-VERS</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">Y</span><span><b>Y-VERS</b><small>K-POP · ENTERTAINMENT · BEYOND</small></span></div>
+      <button class="icon-btn" aria-label="Cari" onclick="toast('Fitur pencarian akan ditambahkan.')">⌕</button>
+      <button class="icon-btn" aria-label="Notifikasi" onclick="toast('Belum ada notifikasi.')">♧</button>
+    </header>
+
+    <main id="screen" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <button data-page="home" class="active"><span>⌂</span>Home</button>
+      <button data-page="program"><span>▦</span>Program</button>
+      <button data-page="gah"><span>★</span>GAH Awards</button>
+      <button data-page="community"><span>▷</span>Community</button>
+      <button data-page="profile"><span>♙</span>My</button>
+    </nav>
+  </div>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
